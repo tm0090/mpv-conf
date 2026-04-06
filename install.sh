@@ -21,7 +21,7 @@ echo "  This will install mpv config files to:"
 echo "  $MPV_CONFIG"
 echo ""
 printf "  Continue? [y/N] "
-read -r confirm
+read -r confirm </dev/tty
 if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo ""
     echo "  Aborted."
@@ -36,10 +36,10 @@ if [ -d "$MPV_CONFIG" ]; then
     echo "  [!] Existing mpv config found at $MPV_CONFIG"
     echo ""
     printf "  Copy into a subfolder instead so you can inspect it manually? [y/N] "
-    read -r subfolder
+    read -r subfolder </dev/tty
     if [[ "$subfolder" =~ ^[Yy]$ ]]; then
         printf "  Subfolder name [default: mpv-conf-new]: "
-        read -r folder_name
+        read -r folder_name </dev/tty
         folder_name="${folder_name:-mpv-conf-new}"
         INSTALL_DIR="$MPV_CONFIG/$folder_name"
         echo ""
