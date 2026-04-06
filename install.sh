@@ -1,17 +1,18 @@
 #!/bin/bash
 
 MPV_CONFIG="$HOME/.config/mpv"
-REPO="https://github.com/yourname/yourrepo"
+ZIP_URL="https://github.com/tm0090/mpv-conf/archive/refs/heads/main.zip"
 TMP="/tmp/mpv-config-tmp"
 
 echo "Fetching config..."
-git clone --depth=1 "$REPO" "$TMP"
+curl -fsSL "$ZIP_URL" -o "$TMP.zip"
+unzip -q "$TMP.zip" -d "$TMP"
 
 mkdir -p "$MPV_CONFIG"
 
 echo "Copying files (skipping existing)..."
-cp -rn "$TMP"/. "$MPV_CONFIG"/
+cp -rn "$TMP/mpv-conf-main/." "$MPV_CONFIG/"
 
-rm -rf "$TMP"
+rm -rf "$TMP" "$TMP.zip"
 
 echo "Done! Config installed to $MPV_CONFIG"
