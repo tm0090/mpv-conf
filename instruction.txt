@@ -1,0 +1,3 @@
+Instruction-
+
+copy all of the folder to .config/mpv thats it
