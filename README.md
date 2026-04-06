@@ -4,7 +4,7 @@ My personal [mpv](https://mpv.io/) configuration, including `uosc` and `thumbfas
 
 ---
 
-## Install
+## Install (Linux / macOS)
 
 Paste this in your terminal:
 
@@ -13,11 +13,13 @@ curl -fsSL https://raw.githubusercontent.com/tm0090/mpv-conf/main/install.sh | s
 ```
 
 This will copy the config files into `~/.config/mpv/`.  
-**Existing files will not be overwritten.**
+If an existing config is found, you will be prompted to install into a subfolder instead so you can inspect and move files manually.
 
 ### Requirements
 
-- `git`
+- Linux or macOS
+- `curl`
+- `unzip`
 - `mpv`
 
 ---
@@ -46,9 +48,3 @@ This will copy the config files into `~/.config/mpv/`.
 ## Update
 
 Run the install command again to copy any new files added to the repo — existing files won't be touched.
-
-Or if you cloned the repo directly into `~/.config/mpv`:
-
-```sh
-cd ~/.config/mpv && git pull
-```
