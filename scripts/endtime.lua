@@ -40,4 +40,12 @@ function show_end_time()
 end
 
 mp.register_event("end-file", clear_overlay)
+
+-- Listen to the mouse movement
 mp.observe_property("mouse-pos", "native", show_end_time)
+
+-- Listen to playback speed changes (updates instantly when you speed up/slow down)
+mp.observe_property("speed", "number", show_end_time)
+
+-- Listen to the time remaining (updates instantly when you seek/cut to another time)
+mp.observe_property("time-remaining", "number", show_end_time)
